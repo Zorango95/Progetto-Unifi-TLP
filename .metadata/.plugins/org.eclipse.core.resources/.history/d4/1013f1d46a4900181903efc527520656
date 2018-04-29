@@ -1,0 +1,6 @@
+package Esempi;
+
+public interface IntFun {
+
+	int identity(int x);
+}

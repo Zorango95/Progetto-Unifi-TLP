@@ -1,0 +1,6 @@
+package Esempi;
+
+public interface sumIntFun {
+
+	int identity(int x);
+}

@@ -1,0 +1,16 @@
+package Esempi;
+
+public class Operazioni {
+
+
+	public Operazioni() {
+	}
+
+	private void getSum(sumIntFun sif, int x, int y) {
+		if (sif.sum(x, y) > 0) {
+			System.out.println("Somma di " + x + " e " + y + "è > 100");
+		}else {
+			System.out.println("Somma di " + x + " e " + y + "è < 100");
+		}
+	}
+}

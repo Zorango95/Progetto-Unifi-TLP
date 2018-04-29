@@ -1,0 +1,5 @@
+package Esempi;
+
+public interface IntFunProd {
+
+}

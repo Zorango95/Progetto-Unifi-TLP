@@ -1,0 +1,24 @@
+package Esempi;
+
+public class OperazioniLambda {
+
+	private int x;
+	private int y;
+
+	public OperazioniLambda(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+
+	public int getIdentity(IntFunId ifid) {
+		return (ifid.identity(x));
+	}
+
+	public boolean getProduct(IntFunProd ifprod) {
+		if (ifprod.product(x, y) > 100) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}

@@ -1,0 +1,14 @@
+package Esempi;
+
+public class Operazioni {
+
+	private int x;
+
+	public Operazioni(int x) {
+		this.x = x;
+	}
+
+	public int getNum( IntFunId ifid) {
+		return (ifid.identity(x));
+	}
+}

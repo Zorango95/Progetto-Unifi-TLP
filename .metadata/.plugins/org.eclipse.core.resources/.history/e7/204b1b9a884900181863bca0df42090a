@@ -1,0 +1,25 @@
+package Esempi;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class OperazioniTest {
+
+	@Test
+	void test() {
+		OperazioniLambda op1 = new OperazioniLambda(10,50);
+		
+		assertEquals(10, op1.getIdentity(x -> {
+			return x;
+		}));
+
+		IntFunProd ifprod = ((x,y) -> {
+			return x * y;
+		});
+		assertEquals(true, op1.getProduct(ifprod));
+		op1.setX(100);
+		assertEquals(true, op1.getProduct(ifprod));
+	}
+
+}

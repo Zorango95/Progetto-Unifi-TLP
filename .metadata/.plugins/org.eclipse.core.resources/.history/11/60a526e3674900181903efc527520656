@@ -1,0 +1,6 @@
+package Esempi;
+
+public interface sumIntFun {
+
+	int sum(int x, int y);
+}

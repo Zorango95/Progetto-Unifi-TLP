@@ -1,0 +1,16 @@
+package Esempi;
+
+public class Operazioni {
+
+	private int x;
+	private int y;
+
+	public Operazioni(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+	
+	private int getSum(InterfaceFunction if) {
+		
+	}
+}
