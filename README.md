@@ -1,4 +1,4 @@
-# Presentazione ATLP : 2017/2018
+# Presentazione Seminario ATPL : 2017/2018
 
 ## Lambda Expression in Java8: Uso e Tipaggio
 
