@@ -1,6 +1,6 @@
 # Presentazione ATLP : 2017/2018
 
-## Lmabda Expression in Java8: Uso e Tpaggio
+## Lambda Expression in Java8: Uso e Tipaggio
 
 1. Introduzione Java e Java8
     * Java
