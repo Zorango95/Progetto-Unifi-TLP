@@ -2,9 +2,10 @@
 
 ## Lambda Expression in Java8: Uso e Tipaggio
 
-1. Introduzione Java e Java8
+1. Java e Java 8
     * Java
     * Evoluzione Java
-    * Java8
-2. Lambda Calcolo vs Lambda Java8
-3. Tipaggio Lambda Java8
+    * Java 8
+2. Uso Lambda Java 8
+    * Introduzione al Lambda Expression
+3. Tipaggio Lambda Java 8
