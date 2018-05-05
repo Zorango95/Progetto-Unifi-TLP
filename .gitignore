@@ -19,9 +19,9 @@
 * .maf
 * .mtc
 * .mtc1
-*.su
+* .su
 * .synctex.gz
 * .fdb_latexmk
 * .m ~
 * .fls
-*.stuoia
+* .stuoia
