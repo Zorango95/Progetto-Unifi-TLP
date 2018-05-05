@@ -1,6 +1,0 @@
-package Esempi;
-
-public interface InterfaceFunction {
-
-	int sum(int x, int y);
-}

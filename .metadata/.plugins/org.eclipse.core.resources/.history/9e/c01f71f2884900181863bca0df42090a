@@ -1,6 +1,0 @@
-package Esempi;
-
-public interface IntFunProd {
-
-	int product(int x, int y);
-}
