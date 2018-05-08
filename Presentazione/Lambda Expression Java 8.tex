@@ -110,9 +110,9 @@
 %------------------------------------------------
 
 \begin{frame}
-	\frametitle{\textbf{2 : Lambda Expression Java 8}}
+	\frametitle{\textbf{2 : Lambda Expression in Java 8}}
 	\begin{center}
-		\textbf{\Huge Lambda Expression Java 8}
+		\textbf{\Huge Lambda Expression in Java 8}
 	\end{center}
 \end{frame}
 
@@ -125,9 +125,8 @@
 				Una \textbf{Lambda Expression} è detta:\\\
 				\begin{itemize}
 					\item
-						\textbf{funzione anonima} (in inglese \textbf{"anonymous function"}), in quanto si tratta proprio di una funzione, quindi non è un metodo appartenente a una classe e chiamato tramite un oggetto, ma è una funzione senza nome;
-					\item
-						\textbf{clouser} (in italiano \textbf{"chiusure"}), in quanto fa uso di variabili che non sono parametri e non sono variabili locali al blocco di codice che definisce l'espressione.\\\
+						\textbf{Funzione anonima} (in inglese \textbf{"anonymous function"}), in quanto si tratta proprio di una funzione, quindi non è un metodo appartenente a una classe e chiamato tramite un oggetto, ma è una funzione senza nome;
+					\item \textbf{Chiusa} (in inglese \textbf{"closure"}), in quanto fa uso di variabili che non sono parametri e non sono variabili locali al blocco di codice che definisce l'espressione.\\\
 				\end{itemize}
 			\item
 				Inoltre le \textbf{Lambda Expression} permettono:\\\
@@ -148,19 +147,18 @@
 		\item
 			In Java 8 la sintassi generale di una funzione è la seguente:\\\
 			\begin{center}
-				\Large ([lista di parametri])$\rightarrow$\{blocco di codice\}\\\
+				\Large ([lista di parametri])$\rightarrow$(espressione di ritorno)\\\
+				\Large ([lista di parametri])$\rightarrow$\{blocco di codice come da prassi procedurale\}\\\
 			\end{center}
 		\item 
-			Il vantaggio principale nell'uso di una \textit{Lambda Expression}, risiede nella sinteticità dell'espressione, in quanto è possibile \textbf{omettere} :\\\
+			Il vantaggio principale nell'uso di una \textit{Lambda Expression}, risiede nella sinteticità dell'espressione. In alcuni casi è possibile \textbf{omettere} :\\\
 			\begin{enumerate}
 				\item
-					le parentesi graffe del blocco di codice quando questo è costituito da un'unica riga, ed è anche possibile evitare il ";" alla fine dello statement;\\
+					il \textbf{tipo dei parametri} quando non c'è possibilit\`a di errore;\\
 				\item
-					il \textbf{tipo dei parametri} quando non c'è possibile di errore;\\
+					le parentesi tonde che circondano la lista dei parametri, nel caso quest'ultima fosse costituita da un unico elemento;\\
 				\item
-					le parentesi tone che circondano la lista dei parametri, nel caso quest'ultima fosse costituita da un unico elemento;\\
-				\item
-					nel caso il blocco di codice prevede solo un'istruzione di tipo \textit{return}, allora la parola \textit{return} è superflua non si deve proprio usare (pena errore in compilazione).					
+					la keyword \emph{return} quando esiste una singola espressione da valutare.		
 			\end{enumerate}
 	\end{itemize}	
 \end{frame}
@@ -184,10 +182,17 @@
 					la seconda \Large $x$ : rappresenta il  \textit{corpo della funzione}.\\\
 			\end{itemize}	
 		\item
-			Prendendo in considerazione le regole prima elencate per la sintassi di una \textit{Lambda Expression} in Java 8, possiamo vedere come tale \textit{funzione} viene scritta:
+			Con queste regole di sintassi, tale funzione pu\`o essere scritta in uno qualsiasi dei seguenti modi:
 			\begin{center}
-				\Large$x\rightarrow(x);$
-			\end{center}									
+				\Large$(x)\rightarrow(x)$
+			\end{center}
+			Oppure:
+			\begin{center}
+				\Large$x\rightarrow(x)$
+			\end{center}
+		\begin{center}
+			\Large$x\rightarrow\{return\;x;\}$
+		\end{center}											
 	\end{itemize}
 \end{frame}
 
@@ -199,11 +204,28 @@
 		\item
 			Dovremmo usare le \textit{Lambda Expression,} quando il nostro obiettivo è quello di passare in maniera dinamica un certo algoritmo ad un altro metodo. Questo serve per eseguire l'algoritmo in un contesto definito dal metodo a cui stiamo passando l'algoritmo. \\\
 		\item
-			In generale, passare una \textit{Lambda Expression}, significherà far decidere al metodo a cui abbiamo passato il codice, il momento in cui eseguirlo.	 
+			In generale, passare una \textit{Lambda Expression} a un metodo, significa delegare allo stesso la decisione sul \emph{se} e sul \emph{quando} valutare tale lambda.
 	\end{itemize}
 \end{frame}
-
 %------------------------------------------------
+
+\begin{frame}
+\frametitle{\textbf{2.3 : Quando usare le Lambda Expression}}
+\begin{itemize}
+	\item
+	In \textit{Java 8} \`e possibile usare una \textit{Lambda Expression} per:\\\
+	\begin{itemize}
+		\item
+		\textbf{Assegnarla a una referenza} : trattarla come valore;\\\
+		\item
+		\textbf{Passarla come parametro} : parametrizzarla come comportamento;\\\
+		\item
+		\textbf{Ottenerla come risultato di una valutazione} : come un qualunque oggetto.
+	\end{itemize}
+\end{itemize}
+\end{frame}
+%------------------------------------------------
+
 
 \begin{frame}
 	\frametitle{\textbf{2.4 : Funzioni di ordine superiore}}
@@ -211,34 +233,42 @@
 		\item
 			Nello studio del \textit{Lambda Calcolo}, abbiamo visto come le funzioni sono entità di prima classe: possono essere argomenti o anche risultato di una funzione.\\\
 		\item
-			Le \textbf{funzioni di ordine superiore} (in inglese \textbf{"higher order functions"}), sono funzioni che ammettono funzioni come argomento o risultato.
+			Le \textbf{funzioni di ordine superiore} (in inglese \textbf{"higher order functions"}) sono funzioni che ammettono a loro volta funzioni come argomento e/o risultato. L'operatore matematico \emph{derivata} \`e un esempio di funzione d'ordine superiore.
 	\end{itemize}
 \end{frame}
+
 
 %------------------------------------------------
 
 \begin{frame}
 	\frametitle{\textbf{2.4 : Funzioni di ordine superiore}}
-	\begin{itemize}
-		\item
-			In \textit{Java 8} posso usare una \textit{Lambda Expression} per:\\\
-			\begin{itemize}
-				\item
-					\textbf{Assegnarla a una referenza} : trattarla come valore;\\\
-				\item
-					\textbf{Passarla come parametro} : parametrizzarla come comportamento;\\\
-				\item
-					\textbf{Ottenerla come risultato di una valutazione} : come un qualunque oggetto.
-			\end{itemize}
-	\end{itemize}
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
+\begin{itemize}
+	\item
+	In Java le lambda expression possono essere funzioni di ordine superiore.\\\
+	\item
+	La possibilit\`a di definire funzioni di ordine superiore rende Java 8 a tutti gli effetti un linguaggio che supporta anche il paradigma del lambda calcolo.
+\end{itemize}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{\textbf{2.5 : Lambda calcolo vs Lambda Expressions}}
+\begin{itemize}
+	\item Vediamo alcuni esempi di implementazione in Java del lambda calcolo.
+\end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{\textbf{2.5 : Lambda calcolo vs Lambda Expressions}}
+\begin{itemize}
+	\item BENE QUA CI SI INIZIA A BUTTARE UNA SLIDE PER OGNI ESEMPIO. AH MATTIA SCUSA MA HO DIMENTICATO IL FOGLIO DELLA BETTI :(
+\end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
 
 \end{document}
               
