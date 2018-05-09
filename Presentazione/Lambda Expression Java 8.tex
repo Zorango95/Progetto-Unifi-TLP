@@ -46,7 +46,7 @@
 		\item
 			\textbf{Java e Java 8}\\\
 		\item
-			\textbf{Lambda Expression Java 8}\\\
+			\textbf{Lambda Expression in Java 8}\\\
 	\end{LARGE}
 	\end{enumerate}
 \end{frame}
@@ -66,7 +66,7 @@
 	\frametitle{\textbf{1.1 : Java}}
 	\begin{itemize}
 		\item
-			\textbf{Java} è un linguaggio di programmazione di alto livello, principalmente \textit{orientato agli oggetti}, ma accetta anche altri paradigmi come quello \textit{funzionale} ed è a \textit{tipizzazione statica}.\\\
+			\textbf{Java} è un linguaggio di programmazione di alto livello, strongly typed, principalmente \textit{orientato agli oggetti}, ma ammette anche altri paradigmi come quello \textit{funzionale} ed è a \textit{tipizzazione statica}.\\\
 		\item
 			E' stato creato per soddisfare cinque obiettivi primari:
 			\begin{enumerate}
@@ -77,9 +77,9 @@
 				\item
 					Essere indipendente dalla piattaforma, da qui il detto \textit{"Write one, run everywhere"};
 				\item
-					Contenente strumenti e librerie per il networking;
+					Contenere strumenti e librerie per il networking;
 				\item
-					Essere progettato per eseguire codice da sorgenti remote in modo sicuro.
+					Eseguire codice da sorgenti remote in modo sicuro.
 			\end{enumerate}
 	\end{itemize}
 \end{frame}
@@ -90,9 +90,9 @@
 	\frametitle{\textbf{1.2 : Evoluzione di Java}}
 		\begin{itemize}
 			\item
-				Quando Java nacque nel 1995, era un linguaggio molto semplice. Con il passare degli anni sono state introdotte gradualmente tante caratteristiche, diventando un linguaggio sempre più potente e completo,in particolare con la versione 5 e 7. Quello che però non era mai cambiato sino ad ora, era la coerenza d'essere un linguaggio orientato agli oggetti.
+				Quando Java nacque nel 1995, era un linguaggio molto semplice. Con il passare degli anni sono state introdotte gradualmente tante caratteristiche, che lo hanno reso un linguaggio sempre più potente e completo, in particolare con le versioni 5 e 7. Quello che però non era mai cambiato sino ad ora, era la coerenza d'essere un linguaggio orientato agli oggetti.
 			\item 
-				Negli ultimi anni però la scena della programmazione mondiale è cambiata. In particolare con l'avvento di processore multi-core nell'uso domestico, la \textit{programmazione funzionale} è stata rivalutata. Con linguaggi moderni come \textit{Scala e Groovy} è possibile scrivere algoritmi con un numero di righe nettamente inferiore, rispetto a quello che si poteva fare con Java, che qualcuno stava già definendo un linguaggio morto in quanto con le versioni 6 e 7 aveva solo modernizzato alcune librerie, estromettendo le tanto richieste \textit{Lambda Expression}.
+				Negli ultimi anni però la scena della programmazione mondiale è cambiata. In particolare con l'avvento di processori multi-core nell'uso domestico, la \textit{programmazione funzionale} è stata rivalutata. Con linguaggi moderni come \textit{Scala e Groovy} è possibile scrivere algoritmi con un numero di righe nettamente inferiore, rispetto a quello che si poteva fare con Java, che qualcuno stava già definendo un linguaggio morto in quanto con le versioni 6 e 7 aveva solo modernizzato alcune librerie, estromettendo le \textit{Lambda Expression}. tuttavia molto richieste.
 		\end{itemize}
 \end{frame}
 
@@ -183,7 +183,7 @@
 					la seconda \Large $x$ : rappresenta il  \textit{corpo della funzione}.\\\
 			\end{itemize}	
 		\item
-			Con queste regole di sintassi, tale funzione pu\`o essere scritta in uno qualsiasi dei seguenti modi:
+			Con le regole sintattiche di Java precedentemente esposte, tale funzione pu\`o essere scritta in uno qualsiasi dei seguenti modi:
 			\begin{center}
 				\Large$(x)\rightarrow(x)$
 			\end{center}
@@ -203,7 +203,7 @@
 	\frametitle{\textbf{2.3 : Quando usare le Lambda Expression}}
 	\begin{itemize}
 		\item
-			Dovremmo usare le \textit{Lambda Expression,} quando il nostro obiettivo è quello di passare in maniera dinamica un certo algoritmo ad un altro metodo. Questo serve per eseguire l'algoritmo in un contesto definito dal metodo a cui stiamo passando l'algoritmo. \\\
+			Dovremmo usare le \textit{Lambda Expression} quando il nostro obiettivo è quello di passare in maniera dinamica un certo algoritmo ad un metodo. Questo serve per eseguire l'algoritmo in un contesto definito dal metodo a cui stiamo passando l'algoritmo. \\\
 		\item
 			In generale, passare una \textit{Lambda Expression} a un metodo, significa delegare allo stesso la decisione sul \emph{se} e sul \emph{quando} valutare tale lambda.
 	\end{itemize}
@@ -247,7 +247,7 @@
 	\item
 	In Java le lambda expression possono essere funzioni di ordine superiore.\\\
 	\item
-	La possibilit\`a di definire funzioni di ordine superiore rende Java 8 a tutti gli effetti un linguaggio che supporta anche il paradigma del lambda calcolo.
+	La possibilit\`a di definire funzioni di ordine superiore rende Java 8 a tutti gli effetti un linguaggio che supporta anche il paradigma funzionale.
 \end{itemize}
 \end{frame}
 
