@@ -113,7 +113,7 @@
 \begin{frame}
 	\frametitle{\textbf{2 : Lambda Expression in Java 8}}
 	\begin{center}
-		\textbf{\Huge Lambda Expression in Java8}
+		\textbf{\Huge Lambda Expression\\ in Java 8}
 	\end{center}
 \end{frame}
 
@@ -238,12 +238,10 @@
 	\end{itemize}
 \end{frame}
 
-
 %------------------------------------------------
 
 \begin{frame}
 	\frametitle{\textbf{2.4 : Funzioni di ordine superiore}}
-<<<<<<< HEAD
 	\begin{itemize}
 		\item
 			In Java le \textit{Lambda Expression} possono essere \textit{funzioni di ordine superiore}.\\\
@@ -251,14 +249,12 @@
 			La possibilità di definire funzioni di ordine superiore rende Java 8 a tutti gli effetti un linguaggio che supporta anche il paradigma del \textit{Lambda Calcolo}.\\\	
 		\item Vediamo alcuni esempi di implementazione in Java del \textbf{Lambda Calcolo}.
 	\end{itemize}
-=======
-\begin{itemize}
-	\item
-	In Java le lambda expression possono essere funzioni di ordine superiore.\\\
-	\item
-	La possibilit\`a di definire funzioni di ordine superiore rende Java 8 a tutti gli effetti un linguaggio che supporta anche il paradigma funzionale.
-\end{itemize}
->>>>>>> d1b3a91998ace13cebddd1235b8fcd4554ca3623
+	\begin{itemize}
+		\item
+			In Java le lambda expression possono essere funzioni di ordine superiore.\\\
+		\item
+			La possibilità di definire funzioni di ordine superiore rende Java 8 a tutti gli effetti un linguaggio che supporta anche il paradigma funzionale.
+	\end{itemize}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
@@ -433,109 +429,175 @@
 %----------------------------------------------------------------------------------------
 
 \begin{frame}
-\frametitle{\textbf{2.6 : Tipaggio}}
-\begin{itemize}
-	\item Finora abbiamo trattato le Lambda senza specificare il modo in cui queste possono essere assegnate a una variabile (o usarle come parametro di un metodo).
-	\item Abbiamo inoltre visto come alcune lambda expressions possono essere valutate chiamando il metodo \emph{apply()}
-	\item Entriamo nel dettaglio
-\end{itemize}
+	\frametitle{\textbf{3 : Tipaggio Lambda Expression}}
+	\begin{center}
+		\textbf{\Huge Tipaggio Lambda Expression}
+	\end{center}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
 
 \begin{frame}
-\frametitle{\textbf{2.6 : Tipaggio}}
-\begin{itemize}
-	\item Java \`e un linguaggio \emph{strongly typed}
-	\item Ogni sotto-espressione di qualsiasi espressione deve essere \emph{ben tipata}
-	\item Quindi il tipo di una lambda deve essere coerente con il suo \emph{tipo atteso}
-\end{itemize}
+	\frametitle{\textbf{3.1 : Tipaggio}}
+	\begin{itemize}
+		\item 
+			Finora abbiamo trattato le \textit{Lambda Expression} senza specificare il modo in cui queste possono essere:\\\ 
+			\begin{itemize}
+				\item
+					\textbf{Assegnate a una referenza};\\\
+				\item
+					\textbf{Passate come parametro};\\\
+				\item
+					\textbf{Ottenute come risultato di una valutazione}.\\\	
+			\end{itemize}
+		\item 
+			Inoltre, abbiamo visto come alcune \textit{Lambda Expression}, possono essere valutate. chiamando il metodo \textbf{apply()}.\\\
+		\item 
+			\textit{Entriamo nel dettaglio}
+	\end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{\textbf{3.1 : Tipaggio}}
+	\begin{itemize}
+		\item 
+			Java è un linguaggio \textbf{strongly typed}, cioè significa che il programmatore è tenuto a specificare il tipo di ogni elemento che durante l'esecuzione denota un valore, e il linguaggio garantisce che tale valore sia utilizzato in modo coerente con il tipo specificato.\\\
+		\item 
+			Quindi, ogni sotto-espressione di qualsiasi espressione deve essere \textbf{ben tipata}.\\\
+		\item 
+			Tornando alle \textit{Lambda Expression}, il \textbf{tipo} di una \textit{Lambda Expression} deve essere coerente con il suo \textbf{tipo atteso}.
+	\end{itemize}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
 
 \begin{frame}[fragile]
-\frametitle{\textbf{2.6 : Tipaggio}}
-\begin{itemize}
-	\item Per esempio, se scriviamo:
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.3\linewidth]{image/target.png}
-		\label{fig:target}
-	\end{figure}
-	\item Otteniamo il seguente errore:
-	\begin{lstlisting}
-	The target type of this expression
-	must be a functional interface
-	\end{lstlisting}
-	\item Perchè la referenza a una lambda deve essere un' \emph{Interfaccia Funzionale}
-\end{itemize}
+	\frametitle{\textbf{3.1 : Tipaggio}}
+	\begin{itemize}
+		\item 
+			Per esempio, se scriviamo:\\\
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.3\linewidth]{image/target.png}
+				\label{fig:target}
+			\end{figure}
+			Otteniamo il seguente errore:\\\
+\begin{lstlisting}
+	"The target type of this expression
+	 must be a functional interface"
+\end{lstlisting}
+		\item 
+			Questo avviene, perchè la \textit{referenza} a una \textit{Lambda Expression} deve essere un' \textbf{Interfaccia Funzionale}.
+	\end{itemize}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
 
 \begin{frame}
-\frametitle{\textbf{2.6.1 : Interfaccie funzionali}}
-\begin{itemize}
-	\item Una qualunque interfaccia è funzionale se e solo se contiene esattamente un solo metodo astratto.
-	\item La signatura di questo metodo descrive il \emph{TIPO} di una Lambda Expression
-	\item Quindi il tipo di una Lambda Expression \`e un' interfaccia funzionale
-	\item Una lambda è come se fosse un'istanza di una classe concreta che implementa l'interfaccia funzionale
-\end{itemize}
+	\frametitle{\textbf{3.2 : Interfaccie funzionali}}
+	\begin{itemize}
+		\item
+			Una qualunque \textit{interfaccia} è \textbf{funzionale} \textit{se e solo se}, contiene esattamente \textit{un solo} \textbf{metodo astratto}.\\\
+		\item 
+			La \textbf{signatura} di questo metodo, descrive il \textbf{TIPO} di una \textit{Lambda Expression}.\\\
+		\item 
+			Quindi il \textit{tipo} di una \textit{Lambda Expression} è un' \textbf{interfaccia funzionale}.\\\
+		\item 
+			Una \textit{Lambda Expression} è come se fosse un'\textit{istanza} di una classe concreta che implementa l'\textit{interfaccia funzionale}.
+	\end{itemize}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
 
 \begin{frame}
-\frametitle{\textbf{2.6.1 : Interfaccie funzionali}}
-\begin{itemize}
-	\item Adesso possiamo capire l'errore precedente:
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.3\linewidth]{image/target.png}
-		\label{fig:target}
-	\end{figure}
-	\item In questo caso il type checker da errore in quanto la lambda expression non matcha con la signatura di alcun metodo astratto di un'interfaccia funzionale.
-\end{itemize}
+	\frametitle{\textbf{3.2 : Interfaccie funzionali}}
+	\begin{itemize}
+		\item
+			Adesso possiamo capire l'errore precedente:\\\
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.3\linewidth]{image/target.png}
+				\label{fig:target}
+			\end{figure}
+		\item
+			In questo caso il \textit{type checker} da errore in quanto la \textit{Lambda Expression} non \textbf{matcha} con la \textit{signatura} di alcun metodo astratto di un'interfaccia funzionale.
+	\end{itemize}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
 
 \begin{frame}
-\frametitle{\textbf{2.6.2 : Typing}}
-\begin{itemize}
-	\item Il tipo di una lambda viene inferito rispetto alla sua interfaccia funzionale
-	\item Il type-checker pu\`o stabilire se una lambda \`e ben tipata quando quest'ultima matcha con la signatura del metodo astratto
-	\item Vediamo un esempio
-\end{itemize}
+	\frametitle{\textbf{3.3 : Typing}}
+	\begin{itemize}
+		\item 
+			Il \textit{tipo} di una \textit{Lambda Expression} viene \textbf{inferito} rispetto alla sua interfaccia funzionale.\\\
+		\item 
+			Il \textit{type-checker} può stabilire se una \textit{Lambda Expression} è \textbf{ben tipata}, quando quest'ultima \textit{matcha} con la \textit{signatura} del metodo astratto.\\\
+	\end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{\textbf{3.3 : Typing}}
+	\begin{itemize}
+		\item
+			Java mette a disposizione le seguenti \textit{Interfacce Funzionali}, che possono essere usate per descrivere la \textit{signatura} di diverse \textit{Lambda Expression}:\\\
+			\begin{itemize}
+				\item
+					\textbf{Predicate<T> \quad T $\rightarrow$ boolean}\\\
+				\item
+					\textbf{Function<T,R> \quad T $\rightarrow$ R}\\\
+				\item
+					\textbf{BinaryOperator<T> \quad (T,T) $\rightarrow$ T}\\\
+				\item
+					\textbf{BiFunction<T,U,R> \quad (T,U) $\rightarrow$ R}\\\
+				\item
+					\textbf{etc...}\\\
+			\end{itemize}
+		\item
+			Inoltre Java, ti permette di definire nuove \textit{Interfacce Funzionali}, indicandole aggiungendo l'annotazione \textbf{@FunctionlInterface}.\\\
+		\item
+			Vediamo qualche esempio.
+	\end{itemize}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
 
 \begin{frame}[fragile]
-\frametitle{\textbf{2.6.2 : Typing}}
-\begin{itemize}
-	\item Java mette a disposizione la seguente interfaccia funzionale:
-	\begin{lstlisting}[language=Java]
-	public interface Function<T,S> {
-		public S apply(T s);
+	\frametitle{\textbf{3.3 : Typing}}
+	\begin{itemize}
+		\item
+			\textbf{Function<T,R> \quad T $\rightarrow$ R}\\\
+\begin{lstlisting}[language=Java]
+	public interface Function<T,R> {
+		public R apply(T s);
 	}
-	\end{lstlisting}
-	\item Quindi come fa il type checker a stabilire se la seguente lambda è ben tipata?
-	\begin{lstlisting}[language=Java]
+\end{lstlisting}
+		\item 
+			Quindi come fa il \textit{type checker} a stabilire se la seguente \textit{Lambda Expression} è \textit{ben tipata}?\\\
+\begin{lstlisting}[language=Java]
 	Function<Integer,Boolean> fun=x->(x>=0);
-	\end{lstlisting}
-\end{itemize}
+\end{lstlisting}
+	\end{itemize}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
 
 \begin{frame}[fragile]
-\frametitle{\textbf{2.6.2 : Typing}}
-\begin{itemize}
-	\item Controlla se, assunto il parametro x di tipo Integer, il body della lambda è un Boolean.
-	\item Dunque, assunto che x è un intero, è vero che $x>=0$ è un booleano? Si, la lambda è ben tipata.
-\end{itemize}
+	\frametitle{\textbf{3.3 : Typing}}
+	\begin{itemize}
+		\item
+			\textbf{Controllo tipaggio}:\\\
+			\begin{itemize}
+				\item 
+					Assunto il \textit{parametro x} di tipo Integer, il \textit{body} della \textit{Lambda Expression} è un Boolean.\\\
+				\item 
+					Dunque, assunto che $x$ è un intero, è vero che $x>=0$ è un booleano? Si, la \textit{Lambda Expression} è \textit{ben tipata}.
+			\end{itemize}
+	\end{itemize}
 \end{frame}
 
 %----------------------------------------------------------------------------------------

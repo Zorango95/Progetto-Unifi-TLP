@@ -15,6 +15,9 @@
     * Quando usare le Lambda Expression
     * Funzioni di ordine superiore
     * Lambda Calcolo vs Lambda Expression
+
+3. Tipaggio Lambda Expression :
+
     * Tipaggio
     * Interfacce funzionali
     * Typing
