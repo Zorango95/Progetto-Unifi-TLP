@@ -21,3 +21,12 @@
     * Tipaggio
     * Interfacce funzionali
     * Typing
+
+4. Lambda Expression vs Design Pattern :
+
+    * Perchè?
+    * Strategy
+    * Template
+    * Altri Pattern
+    
+Conclusione
