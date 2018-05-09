@@ -14,3 +14,7 @@
     * Sintassi
     * Quando usare le Lmbda Expression
     * Funzioni di ordine superiore
+    * Lambda Calcolo vs Lambda Expression
+    * Tipaggio
+    * Interfacce funzionali
+    * Typing
