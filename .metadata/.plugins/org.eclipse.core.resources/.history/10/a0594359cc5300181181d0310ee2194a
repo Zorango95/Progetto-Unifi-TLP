@@ -1,0 +1,5 @@
+package Esempi.Pattern;
+
+public abstract class Template {
+
+}

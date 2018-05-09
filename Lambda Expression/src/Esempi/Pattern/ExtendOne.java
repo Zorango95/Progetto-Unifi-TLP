@@ -1,0 +1,14 @@
+package Esempi.Pattern;
+
+public class ExtendOne extends Template  {
+	
+	@Override
+	public void doDay1() {
+		System.out.println("Il primo giorno i turisti visiteranno Lecce");
+	}
+
+	@Override
+	public void doDay2() {
+		System.out.println("Il secondo giorno i turisti visiteranno Foggia");
+	}
+}

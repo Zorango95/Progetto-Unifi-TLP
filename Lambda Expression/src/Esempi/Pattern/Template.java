@@ -1,0 +1,22 @@
+package Esempi.Pattern;
+
+public abstract class Template {
+
+	public final void doTripTempleate(String dataComing,String dataReturning ){
+		busComing(dataComing);
+		doDay1();
+		doDay2();
+		busReturning(dataReturning);
+	}
+	
+	public void busComing(String data){
+		System.out.println("Il Bus parte il : " + data);
+	}	
+	
+	public abstract void doDay1();	
+	public abstract void doDay2();
+	
+	public void busReturning(String data){
+		System.out.println("Il Bus torna il : " + data);
+	}
+}

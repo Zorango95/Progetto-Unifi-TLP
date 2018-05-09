@@ -1,0 +1,25 @@
+package Esempi.Pattern;
+
+public class TemplateLambda {
+
+	private whereDay wd;
+
+	TemplateLambda(whereDay wd) {
+		this.wd = wd;
+	}
+
+	public final void doTripTempleate(String dataComing,String dataReturning ){
+		busComing(dataComing);
+		wd.printWhereDay();
+		wd.printWhereDay();
+		busReturning(dataReturning);
+	}
+	
+	public void busComing(String data){
+		System.out.println("Il Bus parte il : " + data);
+	}	
+
+	public void busReturning(String data){
+		System.out.println("Il Bus torna il : " + data);
+	}
+}
