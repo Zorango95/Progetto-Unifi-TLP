@@ -7,15 +7,16 @@ import org.junit.jupiter.api.Test;
 
 class StrategyTest {
 
-	private Vendable v;
 	private double base = 100;
-	@BeforeEach
-	void setUp() throws Exception {
-		v=new Vendable(base);
-	}
 
 	@Test
 	void testDiscount() {
+		
+		Vendable v = new Vendable(100);
+		v.setStrategy((x)->(0.75*x));
+		Strategy ss = new StrategyDiscount();
+		v.setStrategy(ss);
+		
 		v.setStrategy(new Strategy() {
 
 			@Override
@@ -24,9 +25,14 @@ class StrategyTest {
 			}
 			
 		});
+		
 		double price1=v.getPriceWithStrategy();
 		double price2=v.getPriceWithLambda((x)->(0.75*x));
 		assertEquals(price1,price2);
+		
+		double price = v.getPriceWithStrategy();
+		assertEquals(price1,price);
+
 	}
 
 }

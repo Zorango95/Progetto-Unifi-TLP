@@ -47,6 +47,8 @@
 			\textbf{Java e Java 8}\\\
 		\item
 			\textbf{Lambda Expression in Java 8}\\\
+		\item
+			\textbf{Tipaggio Lambda Expression}
 	\end{LARGE}
 	\end{enumerate}
 \end{frame}
@@ -185,15 +187,10 @@
 		\item
 			Con le regole sintattiche di Java precedentemente esposte, tale funzione pu\`o essere scritta in uno qualsiasi dei seguenti modi:
 			\begin{center}
-				\Large$(x)\rightarrow(x)$
-			\end{center}
-			Oppure:
-			\begin{center}
-				\Large$x\rightarrow(x)$
-			\end{center}
-		\begin{center}
-			\Large$x\rightarrow\{return\;x;\}$
-		\end{center}											
+				\Large$(x)\rightarrow(x)$\\
+				\Large$x\rightarrow(x)$\\
+				\Large$x\rightarrow\{return \quad x;\}$		
+			\end{center}						
 	\end{itemize}
 \end{frame}
 
@@ -486,7 +483,7 @@
 			Otteniamo il seguente errore:\\\
 \begin{lstlisting}
 	"The target type of this expression
-	 must be a functional interface"
+	must be a functional interface"
 \end{lstlisting}
 		\item 
 			Questo avviene, perchè la \textit{referenza} a una \textit{Lambda Expression} deve essere un' \textbf{Interfaccia Funzionale}.
@@ -558,9 +555,7 @@
 					\textbf{etc...}\\\
 			\end{itemize}
 		\item
-			Inoltre Java, ti permette di definire nuove \textit{Interfacce Funzionali}, indicandole aggiungendo l'annotazione \textbf{@FunctionlInterface}.\\\
-		\item
-			Vediamo qualche esempio.
+			Inoltre Java, ti permette di definire nuove \textit{Interfacce Funzionali}, indicandole aggiungendo l'annotazione \textbf{@FunctionlInterface}.
 	\end{itemize}
 \end{frame}
 
@@ -570,16 +565,18 @@
 	\frametitle{\textbf{3.3 : Typing}}
 	\begin{itemize}
 		\item
-			\textbf{Function<T,R> \quad T $\rightarrow$ R}\\\
+			\textit{Esempio} : \textbf{Function<T,R> \quad T $\rightarrow$ R}\\\
 \begin{lstlisting}[language=Java]
-	public interface Function<T,R> {
+ 	public interface Function<T,R> {
 		public R apply(T s);
 	}
 \end{lstlisting}
 		\item 
 			Quindi come fa il \textit{type checker} a stabilire se la seguente \textit{Lambda Expression} è \textit{ben tipata}?\\\
 \begin{lstlisting}[language=Java]
-	Function<Integer,Boolean> fun=x->(x>=0);
+
+Function<Integer,Boolean> fun = x->(x>=0);
+
 \end{lstlisting}
 	\end{itemize}
 \end{frame}
@@ -606,70 +603,115 @@
 	\frametitle{\textbf{3.3 : Typing}}
 	\begin{itemize}
 		\item
-			E' possibile che il tipo di una lambda sia compatibile con più target type .  \\\
+			E' possibile che il tipo di una \textit{Lambda Expression} sia compatibile con più \textit{target type}.\\\
 \begin{lstlisting}[language=Java]
-	Predicare<Integer> p = (x)->(x%2==0);
-	Function<Integer, Boolean> f =
-	= (x)->(x%2==0);
+
+Predicare<Integer> p = (x)->(x%2==0);
+
+Function<Integer, Boolean> f = (x)->(x%2==0);
+
 \end{lstlisting}
 	\end{itemize}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
 
-\begin{frame}[fragile]
+\begin{frame}
 	\frametitle{\textbf{4 : Lambda Expression vs Design Pattern}}
+	\begin{center}
+		\textbf{\Huge Lambda Expression\\ vs\\ Design Pattern}
+	\end{center}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\begin{frame}[fragile]
+	\frametitle{\textbf{4.1 : Perchè?}}
 	\begin{itemize}
 		\item
-			Finora abbiamo visto alcune semplici applicazioni delle Lambda\\\
+			Finora abbiamo visto alcune semplici applicazioni delle \textit{Lambda Expression}.\\\
 		\item
-			Adesso vediamo come viene semplificato il codice nel caso dell'utilizzo dei Design Pattern.
+			Adesso vediamo come viene \textbf{semplificato} il codice nel caso del loro utilizzo al posto dei \textit{Design Pattern}.\\\
 		\item
-				Design Pattern:
-		\begin{itemize}
-			\item
-				Strategy
-			\item
-				Template Method
-			\item
-				altri ...
-		\end{itemize}
+			Qui di seguito faremo l'esempio dei seguenti \textit{Design Pattern}:\\\
+			\begin{itemize}
+				\item
+					\textbf{Strategy};\\\
+				\item
+					\textbf{Template Method}.
+			\end{itemize}
 	\end{itemize}
 \end{frame}
+
+%----------------------------------------------------------------------------------------
 
 \begin{frame}
 	\frametitle{\textbf{4.1 : Strategy}}
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.6\linewidth]{image/strategy.png}
-		\label{fig:target}
-	\end{figure}
-	Prima dell'introduzione delle Lambda, un client che avesse voluto implementare uno Strategy avrebbe avuto due opzioni:
 	\begin{itemize}
 		\item
-		Classe anonima;
+			Il \textit{Design Pattern Strategy} con l'utilizzo delle \textit{Lambda Expression}, permette di scegliere fra funzioni diverse con la stessa signatura a run-time.\\\
 		\item
-		Definire una classe concreta che implementa l'interfaccia Strategy
+			Esempio:\\\
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.5\linewidth]{image/strategy.png}
+				\label{fig:target}
+				\centering
+				\includegraphics[width=0.4\linewidth]{image/interfaceStrategy.png}
+				\label{fig:target}
+			\end{figure}		
 	\end{itemize}
 \end{frame}
 
+%----------------------------------------------------------------------------------------
+
 \begin{frame}[fragile]
 	\frametitle{\textbf{4.1 : Strategy}}
-\begin{lstlisting}[language=Java]
-Vendable v = new Vendable(0.5);
-v.setStrategy(new Strategy(){
-@Override
-public double getPrice(double basePrice){
-return 0.75*basePrice;		
-}
-});
-	\end{lstlisting}
-	Mentre con le Lambda è possibile fare:
-\begin{lstlisting}[language=Java]
-Vendable v = new Vendable(0.5);
-v.setStrategy(x -> (0.75*x));
-	\end{lstlisting}
+	\begin{itemize}
+		\item
+			Prima dell'introduzione delle \textit{Lambda Expression}, un client che avesse voluto implementare uno \textit{Strategy} avrebbe avuto due opzioni:\\\
+			\begin{itemize}
+				\item
+					\textit{Classe anonima};\\\
+				\item
+					\textit{Definire una classe concreta che implementa l'interfaccia Strategy}.\\\
+			\end{itemize}
+		\item
+			\textbf{Classe anonima}:\\\
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.6\linewidth]{image/strategyAnonima.png}
+				\label{fig:target}
+			\end{figure}
+	\end{itemize}
 \end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\begin{frame}[fragile]
+	\frametitle{\textbf{4.1 : Strategy}}
+	\begin{itemize}
+		\item
+			\textbf{Definire una classe concreta che implementa l'interfaccia Strategy}:\\\
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.6\linewidth]{image/strategyConcreta.png}
+				\label{fig:target}
+				\centering
+				\includegraphics[width=0.6\linewidth]{image/createStrategy.png}
+				\label{fig:target}
+			\end{figure}
+		\item
+			\textbf{Lambda Expression}:\\\
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.6\linewidth]{image/lambdaStrategy.png}
+				\label{fig:target}
+			\end{figure}
+	\end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
 
 \end{document}
               
