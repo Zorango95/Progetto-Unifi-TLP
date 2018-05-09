@@ -8,13 +8,14 @@
 \usetheme{Madrid}
 \usecolortheme{crane}
 }
-
+\usepackage{listings}
 \usepackage{graphicx} 
 \usepackage{booktabs} 
 \usepackage[italian]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{setspace}
+\usepackage{listing}
 
 %----------------------------------------------------------------------------------------
 %   TITLE PAGE
@@ -262,13 +263,204 @@
 %----------------------------------------------------------------------------------------
 \begin{frame}
 \frametitle{\textbf{2.5 : Lambda calcolo vs Lambda Expressions}}
+Funzione che riceve un intero x e restituisce x+1:\\*
 \begin{itemize}
-	\item BENE QUA CI SI INIZIA A BUTTARE UNA SLIDE PER OGNI ESEMPIO. AH MATTIA SCUSA MA HO DIMENTICATO IL FOGLIO DELLA BETTI :(
+	\item Lambda calcolo:\begin{center} $\lambda x.x+1$ \end{center}
+	\item Java:
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.3\linewidth]{identity}
+	
+		\label{fig:identity}
+	\end{figure}
+	
 \end{itemize}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
 
+\begin{frame}
+\frametitle{\textbf{2.5 : Lambda calcolo vs Lambda Expressions}}
+Curryficazione di funzione binaria utilizzando Higher Order Functions:\\*
+\begin{itemize}
+	\item Lambda calcolo:\begin{center}$\lambda xy.x+y$\end{center}\begin{center} $\lambda x.\lambda y.x+y$ \end{center}
+	\item Java:
+		\begin{figure}
+		\centering
+		\includegraphics[width=0.3\linewidth]{double}
+		
+		\label{fig:double}
+	\end{figure}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.4\linewidth]{curry}
+		
+		\label{fig:curry}
+	\end{figure}
+	
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{2.5 : Lambda calcolo vs Lambda Expressions}}
+Booleani:\\*
+\begin{itemize}
+	\item Lambda calcolo:\begin{center} True = $\lambda x.\lambda y.x$ \end{center}
+	\begin{center} False =  $\lambda x.\lambda y.y$ \end{center}
+	\item Java:
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.4\linewidth]{booleani}
+		
+		\label{fig:identity}
+	\end{figure}
+	
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{2.5 : Lambda calcolo vs Lambda Expressions}}
+Ricorsione:\\*
+\begin{itemize}
+	\item Supponiamo di voler scrivere una lambda per calcolare il fattoriale di un numero intero:
+	\item In lambda calcolo vorremmo fare: $$let\;Fact = \lambda n. if(n=0)\;1\;else\;n*Fact(n-1) $$
+	\item Che in java diventerebbe
+\begin{figure}
+	\centering
+	\includegraphics[width=0.4\linewidth]{factwrong}
+	
+	\label{fig:identity}
+\end{figure}
+\item Come sappiamo dal Lambda Calcolo, questa espressione non \`e  corretta poich\'e la lambda, essendo funzione anonima, \emph{non pu\`o sapere} di chiamarsi Fact.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{2.5 : Lambda calcolo vs Lambda Expressions}}
+Ricorsione - Continuo:\\*
+\begin{itemize}
+	\item Possiamo quindi implementare un combinatore di punto fisso. Nel lambda calcolo, un noto combinatore di punto fisso \`e il seguente:
+$$
+fix = \lambda f.(\lambda x.f(xxy))(\lambda x.f(\lambda y.xxy))
+$$
+	\item In Java possiamo definire suddetto combinatore come segue:
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\linewidth]{fix}
+		\label{fig:identity}
+	\end{figure}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{2.5 : Lambda calcolo vs Lambda Expressions}}
+Ricorsione - Continuo:\\*
+\begin{itemize}
+	\item Applicando il combinatore di punto fisso al fattoriale otteniamo quindi:
+	\item In Lambda Calcolo
+	$$
+	let\; G\;=\;fix\;Fact
+	$$
+	\item Mentre in Java:
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\linewidth]{factok}
+		\label{fig:identity}
+	\end{figure}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{2.6 : Tipaggio delle Lambda Expressions}}
+\begin{itemize}
+	\item Finora abbiamo trattato le Lambda senza specificare il modo in cui queste possono essere assegnate a una variabile (o usarle come parametro di un metodo).
+	\item Abbiamo inoltre visto come alcune lambda expressions possono essere valutate chiamando il metodo \emph{apply()}
+	\item Entriamo nel dettaglio
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{2.6 : Tipaggio delle Lambda Expressions}}
+\begin{itemize}
+	\item Java \`e un linguaggio \emph{strongly typed}
+	\item Ogni sotto-espressione di qualsiasi espressione deve essere \emph{ben tipata}
+	\item Quindi il tipo di una lambda deve essere coerente con il suo \emph{tipo atteso}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\textbf{2.6 : Tipaggio delle Lambda Expressions}}
+\begin{itemize}
+	\item Per esempio, se scriviamo:
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.3\linewidth]{target}
+		\label{fig:target}
+	\end{figure}
+	\item Otteniamo il seguente errore:
+	\begin{lstlisting}
+	The target type of this expression
+	must be a functional interface
+	\end{lstlisting}
+	\item Perchè la referenza a una lambda deve essere un' \emph{Interfaccia Funzionale}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{2.6.1 : Interfaccie funzionali}}
+\begin{itemize}
+	\item Una qualunque interfaccia è funzionale se e solo se contiene esattamente un solo metodo astratto.
+	\item La signatura di questo metodo descrive il \emph{TIPO} di una Lambda Expression
+	\item Quindi il tipo di una Lambda Expression \`e un' interfaccia funzionale
+	\item Una lambda è come se fosse un'istanza di una classe concreta che implementa l'interfaccia funzionale
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{2.6.1 : Interfaccie funzionali}}
+\begin{itemize}
+	\item Adesso possiamo capire l'errore precedente:
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.3\linewidth]{target}
+		\label{fig:target}
+	\end{figure}
+	\item In questo caso il type checker da errore in quanto la lambda expression non matcha con la signatura di alcun metodo astratto di un'interfaccia funzionale.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{2.6.2 : Typing}}
+\begin{itemize}
+	\item Il tipo di una lambda viene inferito rispetto alla sua interfaccia funzionale
+	\item Il type-checker pu\`o stabilire se una lambda \`e ben tipata quando quest'ultima matcha con la signatura del metodo astratto
+	\item Vediamo un esempio
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\textbf{2.6.2 : Typing}}
+\begin{itemize}
+	\item Java mette a disposizione la seguente interfaccia funzionale:
+	\begin{lstlisting}[language=Java]
+	public interface Function<T,S> {
+		public S apply(T s);
+	}
+	\end{lstlisting}
+	\item Quindi come fa il type checker a stabilire se la seguente lambda è ben tipata?
+	\begin{lstlisting}[language=Java]
+	Function<Integer,Boolean> fun=x->(x>=0);
+	\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\textbf{2.6.2 : Typing}}
+\begin{itemize}
+	\item Controlla se, assunto il parametro x di tipo Integer, il body della lambda è un Boolean.
+	\item Dunque, assunto che x è un intero, è vero che $x>=0$ è un booleano? Si, la lambda è ben tipata.
+\end{itemize}
+\end{frame}
 
 \end{document}
               
