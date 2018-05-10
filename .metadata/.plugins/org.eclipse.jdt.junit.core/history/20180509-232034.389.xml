@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="TestTemplate" project="Lambda Expression" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="Esempi.Pattern.TestTemplate" time="0.001" displayname="TestTemplate" uniqueid="[engine:junit-jupiter]/[class:Esempi.Pattern.TestTemplate]">
-    <testcase name="test" classname="Esempi.Pattern.TestTemplate" time="0.001" displayname="test()" uniqueid="[engine:junit-jupiter]/[class:Esempi.Pattern.TestTemplate]/[method:test()]"/>
-  </testsuite>
-</testrun>

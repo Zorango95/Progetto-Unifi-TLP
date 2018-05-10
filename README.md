@@ -29,4 +29,4 @@
     * Template
     * Altri Pattern
     
-Conclusione
+5. Conclusione
