@@ -52,7 +52,7 @@
 		\item
 			\textbf{Lambda Expression vs Design Pattern}\\\
 		\item			
-			\textbf{I tipi intersezione}\\ \
+			\textbf{Tipi Intersezione}\\\
 		\item
 			\textbf{Conclusioni}
 	\end{enumerate}
@@ -811,65 +811,87 @@ Function<Integer, Boolean> f = (x)->(x%2==0);
 %----------------------------------------------------------------------------------------
 
 \begin{frame}
-	\frametitle{\textbf{5 : I tipi intersezione}}
+	\frametitle{\textbf{5 : Tipi Intersezione}}
+	\begin{center}
+		\textbf{\Huge Tipi Intersezione}
+	\end{center}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{\textbf{5.1 : I tipi intersezione}}
 	\begin{itemize}
 		\item
-			In Java 8 è stato introdotto un nuovo tipo
+			In Java 8 è stato introdotto un nuovo tipo.\\\
 		\item
-			I \textit{tipi intersezione}
+			I \textit{tipi intersezione}.
 	\end{itemize}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
+
 \begin{frame}
-	\frametitle{\textbf{5.1 : I tipi intersezione, Le regole}}
+	\frametitle{\textbf{5.2 : Regole dei tipi intersezione}}
 		\begin{itemize}
 		\item
-			Se \textit{T, T'} sono tipi, allora \textit{T\&T'} è un tipo
+			Se \textit{T, T'} sono tipi, allora \textit{T\&T'} è un tipo.\\\
 		\item
-			Un termine che ha tipo T e T', ha anche il tipo T\&T'
+			Un termine che ha tipo T e T', ha anche il tipo T\&T' .\\\
 		\item
-			Un termine che ha tipo T\&T', ha sia tipo T che tipo T', ossia ha tutte le proprietà del tipo T e le proprietà del tipo T'
+			Un termine che ha tipo T\&T', ha sia tipo T che tipo T', ossia ha tutte le proprietà del tipo T e le proprietà del tipo T'.\\\
 		\item
-			I tipi intersezione sono particolarmente utili se usati assieme alle lambda, poichè castare una lambda a un tipo interesezione permette di aggiungere comportamenti diversi alla stessa lambda expression
+			I tipi \textit{intersezione} sono particolarmente utili se usati assieme alle lambda, poichè castare una \textit{Lambda Expression} a un tipo \textit{interesezione} permette di aggiungere comportamenti diversi alla stessa \textit{Lambda Expression}.\\\
 		\item
 			Questo è l'argomento della successiva trattazione da parte della Prof.
 	\end{itemize}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
+
 \begin{frame}
-\frametitle{\textbf{6 : Conclusioni}}
-\begin{itemize}
-	\item
-		Abbiamo visto un'introduzione all'uso delle Lambda Expression in Java
-	\item
-		Java è un linguaggio nato per essere semplice, familiare e sicuro
-	\item
-		L'assenza delle lambda rappresentava una grande lacuna rispetto ad altri linguaggi
-	\item
-		La loro aggiunta permette veramente di scrivere codice più conciso ed elegante
-\end{itemize}
+	\frametitle{\textbf{6 : Conclusioni}}
+	\begin{center}
+		\textbf{\Huge Conclusioni}
+	\end{center}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
 
 \begin{frame}
-\frametitle{\textbf{6 : Conclusioni - Continuo}}
-\begin{itemize}
-	\item
-		Eliminata la necessità di dover implementare classi anonime al volo
-	\item
-		Semplificazione di molti Design Pattern
-	\item
-		Eliminazione di alcuni Design Pattern (il Command può essere implementato con una lambda)
-	\item
-		L'utilizzo delle lambda si combina bene con altri miglioramenti apportati al linguaggio:
-		\begin{itemize}
-			\item Referenza ai metodi statici
-			\item Tipi intersezione
-		\end{itemize}
-\end{itemize}
+	\frametitle{\textbf{6.1 : Conclusioni}}
+	\begin{itemize}
+		\item
+			Abbiamo visto un'introduzione all'uso delle \textbf{Lambda Expression} in Java.\\\
+		\item
+			Java è un linguaggio nato per essere semplice, familiare e sicuro.\\\
+		\item
+			L'assenza delle \textit{Lambda Expression} rappresentava una grande lacuna rispetto ad altri linguaggi.\\\
+		\item
+			La loro aggiunta permette veramente di scrivere codice più conciso ed elegante.
+	\end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{\textbf{6.1 : Conclusioni}}
+	\begin{itemize}
+		\item
+			Eliminata la necessità di dover implementare \textit{classi anonime} al volo.\\\
+		\item
+			Semplificazione di molti \textit{Design Pattern}.\\\
+		\item
+			Eliminazione di alcuni \textit{Design Pattern} (il Command può essere implementato con una \textit{Lambda Expression}).\\\
+		\item
+			L'utilizzo delle \textit{Lambda Expression} si combina bene con altri miglioramenti apportati al linguaggio:\\\
+			\begin{itemize}
+				\item 
+					\textit{Referenza ai metodi statici};\\\
+				\item
+					\textit{Tipi intersezione}.
+			\end{itemize}
+	\end{itemize}
 \end{frame}
 
 %----------------------------------------------------------------------------------------

@@ -28,5 +28,12 @@
     * Strategy
     * Template
     * Altri Pattern
+
+5. Tipi Intersezione
     
-5. Conclusione
+    * I tipi intersezione
+    * Regole dei tipi intersezione
+    
+6. Conclusioni 
+
+    * Conclusioni
