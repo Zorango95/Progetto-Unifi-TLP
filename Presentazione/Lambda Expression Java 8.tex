@@ -135,9 +135,10 @@
 				\begin{itemize}
 					\item
 						\textbf{Funzione anonima} (in inglese \textbf{"anonymous function"}), in quanto si tratta proprio di una funzione, quindi non è un metodo appartenente a una classe e chiamato tramite un oggetto, ma è una funzione senza nome;
-					\item 
-						\textbf{Closure}), nel senso che possono occorrere eventuali variabili libere dell'ambiente di definizione.\\\
+				
 				\end{itemize}
+				\item 
+			Essa rappresenta una \textbf{Closure}, nel senso che all'interno di una lambda possono occorrere eventuali variabili libere dell'ambiente di definizione.\\\
 			\item
 				Inoltre le \textbf{Lambda Expression} permettono:\\\
 				\begin{itemize}
@@ -368,9 +369,6 @@
 				\item
 					\textbf{Ottenute come risultato di una valutazione}.\\\	
 			\end{itemize}
-		\item 
-			Inoltre, abbiamo visto come alcune \textit{Lambda Expression}, possono essere valutate. chiamando il metodo \textbf{apply()}.\\\
-		\item 
 			\textit{Entriamo nel dettaglio}
 	\end{itemize}
 \end{frame}
@@ -381,7 +379,7 @@
 	\frametitle{\textbf{3.1 : Tipaggio}}
 	\begin{itemize}
 		\item 
-			Java è un linguaggio \textbf{strongly typed}, cioè significa che il programmatore è tenuto a specificare il tipo di ogni elemento che durante l'esecuzione denota un valore, e il linguaggio garantisce che tale valore sia utilizzato in modo coerente con il tipo specificato.\\\
+			Java è un linguaggio \textbf{strongly typed}, ciò significa che il programmatore è tenuto a specificare il tipo di ogni elemento che durante l'esecuzione denota un valore, e il linguaggio garantisce che tale valore sia utilizzato in modo coerente con il tipo specificato.\\\
 		\item 
 			Quindi, ogni sotto-espressione di qualsiasi espressione deve essere \textbf{ben tipata}.\\\
 		\item 
@@ -441,6 +439,8 @@
 			\end{figure}
 		\item
 			In questo caso il \textit{type checker} da errore in quanto si aspetta che il \textit{target type} della \textit{Lambda Expression} sia di \textit{tipo Point}, quindi controlla che \textit{Lambda Expression} sia di \textit{tipo Point}, ma non può avere \textit{tipo Point} perchè \textit{Point} non è un'\textit{Interfaccia Funzionale}.
+		\item
+			Può avvenire che Point sia effettivamente un'interfaccia funzionale, ma la lambda potrebbe non matchare con la signatura del metodo astratto.
 	\end{itemize}
 \end{frame}
 
@@ -474,12 +474,12 @@
 	\frametitle{\textbf{3.3 : Typing}}
 	\begin{itemize}
 		\item
-			A questo punto, il \textit{type-checker} prende il \textit{target-type} e controlla se può assegnarlo alla \textit{Lambda Expression}.\\\
+			A questo punto, il \textit{type-checker} considera il \textit{target-type} e controlla se può assegnarlo alla \textit{Lambda Expression}.\\\
 			\begin{itemize}
 				\item
 					Se il \textit{target-type} non è un'\textit{Interfaccia Funzionale}, l'assegnazione viene subito \textbf{negata}.\\\
 				\item
-					Se il \textit{target-type} è un'\textit{Interfaccia Funzionale}, l'assegnazione avviene \textit{se e solo se}, la \textit{Lambda Expression} \textbf{matches} la \textit{signatura} del metodo astratto, la quale è definita in questo modo :\\\
+					Se il \textit{target-type} è un'\textit{Interfaccia Funzionale}, l'assegnazione avviene \textit{se e solo se}, la \textit{Lambda Expression} \textbf{matcha} la \textit{signatura} del metodo astratto, la quale è definita in questo modo :\\\
 					\begin{center}
 						\textbf{T metodo(T1 x)}\\\
 					\end{center}
@@ -560,7 +560,7 @@ Function<Integer,Boolean> fun = x->(x>=0);
 			E' possibile che il tipo di una \textit{Lambda Expression} sia compatibile con più \textit{target type}.\\\
 \begin{lstlisting}[language=Java]
 
-Predicare<Integer> p = (x)->(x%2==0);
+Predicate<Integer> p = (x)->(x%2==0);
 
 Function<Integer, Boolean> f = (x)->(x%2==0);
 
@@ -569,6 +569,49 @@ Function<Integer, Boolean> f = (x)->(x%2==0);
 \end{frame}
 
 %----------------------------------------------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{\textbf{3.4 : Semantica}}
+Supponiamo di aver definito la seguente interfaccia funzionale:
+\begin{lstlisting}[language=Java]
+interface I{
+	boolean check(int n);
+}
+\end{lstlisting}
+Supponiamo inoltre di avere anche definito una siffatta classe:
+\begin{lstlisting}[language=Java]
+class A<T> {
+...
+T method(I i){
+	...
+	int n;
+	...
+	i.check(n);
+	...
+}
+}
+\end{lstlisting}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{\textbf{3.4 : Semantica - Continuo:}}
+Vediamo cosa avviene se in un client eseguo
+\begin{lstlisting}[language=Java]
+A<Integer> a = new A<>();
+...
+a.method((x)->(x>0));
+\end{lstlisting}
+Quando nel body del metodo incontro l'invocazione di check sulla lambda, viene eseguita l'istruzione
+\begin{lstlisting}[language=Java]
+return x>0;
+\end{lstlisting}
+Con il parametro formale x sostituito dal parametro attuale n (definito dal contesto del metodo).
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
 
 \begin{frame}
 	\frametitle{\textbf{4 : Lambda Expression vs Design Pattern}}
