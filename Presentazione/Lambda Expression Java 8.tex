@@ -438,9 +438,9 @@
 				\label{fig:target}
 			\end{figure}
 		\item
-			In questo caso il \textit{type checker} da errore in quanto si aspetta che il \textit{target type} della \textit{Lambda Expression} sia di \textit{tipo Point}, quindi controlla che \textit{Lambda Expression} sia di \textit{tipo Point}, ma non può avere \textit{tipo Point} perchè \textit{Point} non è un'\textit{Interfaccia Funzionale}.
+			In questo caso il \textit{type checker} da errore in quanto si aspetta che il \textit{target type} della \textit{Lambda Expression} sia di \textit{tipo Point}, quindi controlla che \textit{Lambda Expression} sia di \textit{tipo Point}, ma non può avere \textit{tipo Point} perchè \textit{Point} non è un'\textit{Interfaccia Funzionale}.\\\
 		\item
-			Può avvenire che Point sia effettivamente un'interfaccia funzionale, ma la lambda potrebbe non matchare con la signatura del metodo astratto.
+			Può avvenire che Point sia effettivamente un'\textit{interfaccia funzionale}, ma la \textit{Lambda Expression} potrebbe \textbf{non matchare} con la \textit{signatura} del metodo astratto.
 	\end{itemize}
 \end{frame}
 
@@ -571,43 +571,55 @@ Function<Integer, Boolean> f = (x)->(x%2==0);
 %----------------------------------------------------------------------------------------
 
 \begin{frame}[fragile]
-\frametitle{\textbf{3.4 : Semantica}}
-Supponiamo di aver definito la seguente interfaccia funzionale:
+	\frametitle{\textbf{3.4 : Semantica}}
+	\begin{itemize}
+		\item
+			\textit{Esempio}: 
+			\begin{itemize}
+				\item
+					Supponiamo di aver definito la seguente \textit{interfaccia funzionale}:
 \begin{lstlisting}[language=Java]
-interface I{
-	boolean check(int n);
-}
+	interface I{
+		boolean check(int n);
+	}
 \end{lstlisting}
-Supponiamo inoltre di avere anche definito una siffatta classe:
+				\item
+					Supponiamo inoltre di avere anche definito una \textit{classe} in questo modo:
 \begin{lstlisting}[language=Java]
-class A<T> {
-...
-T method(I i){
+	class A<T> {
 	...
-	int n;
-	...
-	i.check(n);
-	...
-}
-}
+		T method(I i){
+			...
+			int n;
+			...
+			i.check(n);
+			...
+		}
+	}
 \end{lstlisting}
+			\end{itemize}
+	\end{itemize}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
 
 \begin{frame}[fragile]
-\frametitle{\textbf{3.4 : Semantica - Continuo:}}
-Vediamo cosa avviene se in un client eseguo
+	\frametitle{\textbf{3.4 : Semantica - Continuo:}}
+	\begin{itemize}
+		\item	
+			Vediamo cosa avviene se in un client eseguo il seguente codice:
 \begin{lstlisting}[language=Java]
-A<Integer> a = new A<>();
-...
-a.method((x)->(x>0));
+	A<Integer> a = new A<>();
+	...
+	a.method((x)->(x>0));
 \end{lstlisting}
-Quando nel body del metodo incontro l'invocazione di check sulla lambda, viene eseguita l'istruzione
+		\item
+			Quando nel body del metodo incontro l'invocazione di \textit{check} sulla \textit{Lambda Expression}, viene eseguita l'istruzione:
 \begin{lstlisting}[language=Java]
-return x>0;
+	return x>0;
 \end{lstlisting}
-Con il parametro formale x sostituito dal parametro attuale n (definito dal contesto del metodo).
+			Con il \textbf{parametro formale} \textit{x} sostituito dal \textbf{parametro attuale} \textit{n} (definito dal \textit{contesto del metodo}).
+	\end{itemize}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
