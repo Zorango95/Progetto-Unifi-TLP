@@ -440,7 +440,7 @@
 				\label{fig:target}
 			\end{figure}
 		\item
-			In questo caso il \textit{type checker} da errore in quanto la \textit{Lambda Expression} non \textbf{matcha} con la \textit{signatura} di alcun metodo astratto di un'interfaccia funzionale.
+			In questo caso il \textit{type checker} da errore in quanto si aspetta che il \textit{target type} della \textit{Lambda Expression} sia di \textit{tipo Point}, quindi controlla che \textit{Lambda Expression} sia di \textit{tipo Point}, ma non può avere \textit{tipo Point} perchè \textit{Point} non è un'\textit{Interfaccia Funzionale}.
 	\end{itemize}
 \end{frame}
 
@@ -449,10 +449,43 @@
 \begin{frame}
 	\frametitle{\textbf{3.3 : Typing}}
 	\begin{itemize}
-		\item 
-			Il \textit{tipo} di una \textit{Lambda Expression} viene \textbf{inferito} rispetto alla sua interfaccia funzionale.\\\
-		\item 
-			Il \textit{type-checker} può stabilire se una \textit{Lambda Expression} è \textbf{ben tipata}, quando quest'ultima \textit{matcha} con la \textit{signatura} del metodo astratto.\\\
+		\item
+			Una \textit{Lambda Expression} può avere un \textit{tipo solo}, se questo è un'\textit{Interfaccia Funzionale}.\\\
+		\item
+			Il \textit{contesto} definisce il \textit{target type} che bisogna assegnare alla \textit{Lambda Expression}.\\\
+		\item
+			Il \textbf{target type} è :\\\
+			\begin{itemize}
+				\item
+					Il \textit{tipo di ritorno} se il return di un metodo è una \textit{Lambda Expression};\\\
+				\item
+					Il \textit{tipo della variabile} se assegno alla variabile una \textit{Lambda Expression};\\\
+				\item
+					Il \textit{tipo del parametro} se passo una \textit{Lambda Expression} come parametro attuale;\\\
+				\item
+					Il \textit{tipo} a cui faccio \textit{cast} se la \textit{Lambda Expression} è un \textit{type-cast}.
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{\textbf{3.3 : Typing}}
+	\begin{itemize}
+		\item
+			A questo punto, il \textit{type-checker} prende il \textit{target-type} e controlla se può assegnarlo alla \textit{Lambda Expression}.\\\
+			\begin{itemize}
+				\item
+					Se il \textit{target-type} non è un'\textit{Interfaccia Funzionale}, l'assegnazione viene subito \textbf{negata}.\\\
+				\item
+					Se il \textit{target-type} è un'\textit{Interfaccia Funzionale}, l'assegnazione avviene \textit{se e solo se}, la \textit{Lambda Expression} \textbf{matches} la \textit{signatura} del metodo astratto, la quale è definita in questo modo :\\\
+					\begin{center}
+						\textbf{T metodo(T1 x)}\\\
+					\end{center}
+				\item
+					Si controlla se assegnando alla variabile \textit{Lambda-astratta} il \textbf{tipo T1}, il \textit{body} della \textit{Lambda Expression} ha \textbf{tipo T}.
+			\end{itemize}
 	\end{itemize}
 \end{frame}
 
